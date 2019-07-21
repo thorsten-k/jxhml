@@ -1,5 +1,5 @@
 
-package de.kisner.jxhml.model.xml;
+package de.kisner.jxhml.model.xml.api;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -34,8 +34,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "device"
 })
-@XmlRootElement(name = "state")
-public class State
+@XmlRootElement(name = "deviceList")
+public class DeviceList
     implements Serializable
 {
 

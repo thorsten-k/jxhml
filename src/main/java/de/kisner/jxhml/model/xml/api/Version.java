@@ -1,5 +1,5 @@
 
-package de.kisner.jxhml.model.xml;
+package de.kisner.jxhml.model.xml.api;
 
 import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;

@@ -1,5 +1,5 @@
 
-package de.kisner.jxhml.model.xml;
+package de.kisner.jxhml.model.xml.api;
 
 import javax.xml.bind.annotation.XmlRegistry;
 
@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRegistry;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the de.kisner.jxhml.model.xml package. 
+ * generated in the de.kisner.jxhml.model.xml.api package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -23,7 +23,7 @@ public class ObjectFactory {
 
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: de.kisner.jxhml.model.xml
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: de.kisner.jxhml.model.xml.api
      * 
      */
     public ObjectFactory() {
@@ -51,6 +51,22 @@ public class ObjectFactory {
      */
     public Device createDevice() {
         return new Device();
+    }
+
+    /**
+     * Create an instance of {@link Channel }
+     * 
+     */
+    public Channel createChannel() {
+        return new Channel();
+    }
+
+    /**
+     * Create an instance of {@link Datapoint }
+     * 
+     */
+    public Datapoint createDatapoint() {
+        return new Datapoint();
     }
 
     /**

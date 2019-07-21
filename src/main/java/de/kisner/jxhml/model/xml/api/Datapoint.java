@@ -1,5 +1,5 @@
 
-package de.kisner.jxhml.model.xml;
+package de.kisner.jxhml.model.xml.api;
 
 import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -21,11 +21,10 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence&gt;
  *       &lt;/sequence&gt;
  *       &lt;attribute name="name" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
- *       &lt;attribute name="address" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="type" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="ise_id" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
- *       &lt;attribute name="interface" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
- *       &lt;attribute name="device_type" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
- *       &lt;attribute name="ready_config" type="{http://www.w3.org/2001/XMLSchema}boolean" /&gt;
+ *       &lt;attribute name="value" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="timestamp" type="{http://www.w3.org/2001/XMLSchema}int" /&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -35,24 +34,22 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
-@XmlRootElement(name = "device")
-public class Device
+@XmlRootElement(name = "datapoint")
+public class Datapoint
     implements Serializable
 {
 
     private final static long serialVersionUID = 1L;
     @XmlAttribute(name = "name")
     protected String name;
-    @XmlAttribute(name = "address")
-    protected String address;
+    @XmlAttribute(name = "type")
+    protected String type;
     @XmlAttribute(name = "ise_id")
     protected String iseId;
-    @XmlAttribute(name = "interface")
-    protected String _interface;
-    @XmlAttribute(name = "device_type")
-    protected String deviceType;
-    @XmlAttribute(name = "ready_config")
-    protected Boolean readyConfig;
+    @XmlAttribute(name = "value")
+    protected String value;
+    @XmlAttribute(name = "timestamp")
+    protected Integer timestamp;
 
     /**
      * Gets the value of the name property.
@@ -83,31 +80,31 @@ public class Device
     }
 
     /**
-     * Gets the value of the address property.
+     * Gets the value of the type property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getAddress() {
-        return address;
+    public String getType() {
+        return type;
     }
 
     /**
-     * Sets the value of the address property.
+     * Sets the value of the type property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setAddress(String value) {
-        this.address = value;
+    public void setType(String value) {
+        this.type = value;
     }
 
-    public boolean isSetAddress() {
-        return (this.address!= null);
+    public boolean isSetType() {
+        return (this.type!= null);
     }
 
     /**
@@ -139,91 +136,63 @@ public class Device
     }
 
     /**
-     * Gets the value of the interface property.
+     * Gets the value of the value property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getInterface() {
-        return _interface;
+    public String getValue() {
+        return value;
     }
 
     /**
-     * Sets the value of the interface property.
+     * Sets the value of the value property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setInterface(String value) {
-        this._interface = value;
+    public void setValue(String value) {
+        this.value = value;
     }
 
-    public boolean isSetInterface() {
-        return (this._interface!= null);
+    public boolean isSetValue() {
+        return (this.value!= null);
     }
 
     /**
-     * Gets the value of the deviceType property.
+     * Gets the value of the timestamp property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Integer }
      *     
      */
-    public String getDeviceType() {
-        return deviceType;
+    public int getTimestamp() {
+        return timestamp;
     }
 
     /**
-     * Sets the value of the deviceType property.
+     * Sets the value of the timestamp property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Integer }
      *     
      */
-    public void setDeviceType(String value) {
-        this.deviceType = value;
+    public void setTimestamp(int value) {
+        this.timestamp = value;
     }
 
-    public boolean isSetDeviceType() {
-        return (this.deviceType!= null);
+    public boolean isSetTimestamp() {
+        return (this.timestamp!= null);
     }
 
-    /**
-     * Gets the value of the readyConfig property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
-     */
-    public boolean isReadyConfig() {
-        return readyConfig;
-    }
-
-    /**
-     * Sets the value of the readyConfig property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
-     */
-    public void setReadyConfig(boolean value) {
-        this.readyConfig = value;
-    }
-
-    public boolean isSetReadyConfig() {
-        return (this.readyConfig!= null);
-    }
-
-    public void unsetReadyConfig() {
-        this.readyConfig = null;
+    public void unsetTimestamp() {
+        this.timestamp = null;
     }
 
 }

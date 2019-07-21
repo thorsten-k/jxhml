@@ -37,9 +37,29 @@
 		<echo level="info">xsd.dir = ${xsd.dir}</echo>
 		<java classname="com.sun.tools.xjc.XJCFacade" fork="true" failonerror="true"  maxmemory="128m">
 			<arg value="-extension"/>
-			<arg value="${xsd.dir}/hm.xsd"/>
+			<arg value="${xsd.dir}/api.xsd"/>
 			<arg value="-d"/><arg value="${src.dir}"/>
-			<arg value="-b"/><arg value="${basedir}/src/main/ant/xsd.xjb"/>
+			<arg value="-b"/><arg value="${basedir}/src/main/ant/api.xjb"/>
+	    	<arg value="-no-header"/>
+			<sysproperty key="user.language=" value="en"/>
+			<classpath>
+				<pathelement location="${jaxb-xjc.lib}"/>
+				<pathelement location="${jaxb-core.lib}"/>
+				<pathelement location="${jaxb-runtime.lib}"/>
+				<pathelement location="${codemodel.lib}"/>
+				<pathelement location="${txw2.lib}"/>
+				<pathelement location="${istack-tools.lib}"/>
+				<pathelement location="${istack-runtime.lib}"/>
+				<pathelement location="${xsom.lib}"/>
+				<pathelement location="${rngom.lib}"/>
+				<pathelement location="${relaxng.lib}"/>
+			</classpath>
+		</java>
+		<java classname="com.sun.tools.xjc.XJCFacade" fork="true" failonerror="true"  maxmemory="128m">
+			<arg value="-extension"/>
+			<arg value="${xsd.dir}/jxhml.xsd"/>
+			<arg value="-d"/><arg value="${src.dir}"/>
+			<arg value="-b"/><arg value="${basedir}/src/main/ant/jxhml.xjb"/>
 	    	<arg value="-no-header"/>
 			<sysproperty key="user.language=" value="en"/>
 			<classpath>
