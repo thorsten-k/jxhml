@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+    xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" jaxb:extensionBindingPrefixes="xjc"
+    jaxb:version="2.0">
+    <xsd:annotation>
+        <xsd:appinfo>
+            <jaxb:globalBindings generateIsSetMethod="true">
+                <xjc:serializable uid="1"/>
+            </jaxb:globalBindings>
+        </xsd:appinfo>
+    </xsd:annotation>
+	<xsd:element name="version">
+        <xsd:complexType>
+            <xsd:simpleContent>
+                <xsd:extension base="xsd:string">
+                </xsd:extension>
+            </xsd:simpleContent>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="deviceList">
+        <xsd:complexType>
+            <xsd:sequence>
+					<xsd:element ref="device" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="state">
+        <xsd:complexType>
+            <xsd:sequence>
+					<xsd:element ref="device" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="device">
+        <xsd:complexType>
+            <xsd:sequence>
+            	
+            </xsd:sequence>
+            <xsd:attribute name="name" type="xsd:string"/>
+				<xsd:attribute name="address" type="xsd:string"/>
+				<xsd:attribute name="ise_id" type="xsd:string"/>
+				<xsd:attribute name="interface" type="xsd:string"/>
+				<xsd:attribute name="device_type" type="xsd:string"/>
+				<xsd:attribute name="ready_config" type="xsd:boolean"/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
