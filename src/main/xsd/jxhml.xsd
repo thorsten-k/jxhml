@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema targetNamespace="http://jxhml.kisner.de"
+	xmlns:jxhml="http://jxhml.kisner.de"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
     xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" jaxb:extensionBindingPrefixes="xjc"
@@ -19,4 +20,48 @@
             </xsd:simpleContent>
         </xsd:complexType>
     </xsd:element>
+	<xsd:element name="devices">
+        <xsd:complexType>
+            <xsd:sequence>
+				<xsd:element ref="jxhml:device" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="device">
+        <xsd:complexType>
+  			<xsd:sequence>
+  				<xsd:element ref="jxhml:type" maxOccurs="1"/>
+				<xsd:element ref="jxhml:radio" maxOccurs="1"/>
+				<xsd:element ref="jxhml:channels" maxOccurs="1"/>
+            </xsd:sequence>
+			<xsd:attribute name="id" type="xsd:long"/>
+			<xsd:attribute name="code" type="xsd:string"/>
+			<xsd:attribute name="address" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="radio">
+        <xsd:complexType>
+			<xsd:attribute name="code" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="type">
+        <xsd:complexType>
+			<xsd:attribute name="code" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:element name="channels">
+        <xsd:complexType>
+            <xsd:sequence>
+				<xsd:element ref="jxhml:channel" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="channel">
+        <xsd:complexType>
+			<xsd:attribute name="id" type="xsd:string"/>
+			<xsd:attribute name="code" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+    
 </xsd:schema>

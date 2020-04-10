@@ -37,4 +37,52 @@ public class ObjectFactory {
         return new Version();
     }
 
+    /**
+     * Create an instance of {@link Devices }
+     * 
+     */
+    public Devices createDevices() {
+        return new Devices();
+    }
+
+    /**
+     * Create an instance of {@link Device }
+     * 
+     */
+    public Device createDevice() {
+        return new Device();
+    }
+
+    /**
+     * Create an instance of {@link Type }
+     * 
+     */
+    public Type createType() {
+        return new Type();
+    }
+
+    /**
+     * Create an instance of {@link Radio }
+     * 
+     */
+    public Radio createRadio() {
+        return new Radio();
+    }
+
+    /**
+     * Create an instance of {@link Channels }
+     * 
+     */
+    public Channels createChannels() {
+        return new Channels();
+    }
+
+    /**
+     * Create an instance of {@link Channel }
+     * 
+     */
+    public Channel createChannel() {
+        return new Channel();
+    }
+
 }
