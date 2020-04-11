@@ -18,8 +18,9 @@ import javax.xml.bind.annotation.XmlType;
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;attribute name="id" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="id" type="{http://www.w3.org/2001/XMLSchema}long" /&gt;
  *       &lt;attribute name="code" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="nr" type="{http://www.w3.org/2001/XMLSchema}int" /&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -36,19 +37,21 @@ public class Channel
 
     private final static long serialVersionUID = 1L;
     @XmlAttribute(name = "id")
-    protected String id;
+    protected Long id;
     @XmlAttribute(name = "code")
     protected String code;
+    @XmlAttribute(name = "nr")
+    protected Integer nr;
 
     /**
      * Gets the value of the id property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Long }
      *     
      */
-    public String getId() {
+    public long getId() {
         return id;
     }
 
@@ -57,15 +60,19 @@ public class Channel
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Long }
      *     
      */
-    public void setId(String value) {
+    public void setId(long value) {
         this.id = value;
     }
 
     public boolean isSetId() {
         return (this.id!= null);
+    }
+
+    public void unsetId() {
+        this.id = null;
     }
 
     /**
@@ -94,6 +101,38 @@ public class Channel
 
     public boolean isSetCode() {
         return (this.code!= null);
+    }
+
+    /**
+     * Gets the value of the nr property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Integer }
+     *     
+     */
+    public int getNr() {
+        return nr;
+    }
+
+    /**
+     * Sets the value of the nr property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Integer }
+     *     
+     */
+    public void setNr(int value) {
+        this.nr = value;
+    }
+
+    public boolean isSetNr() {
+        return (this.nr!= null);
+    }
+
+    public void unsetNr() {
+        this.nr = null;
     }
 
 }

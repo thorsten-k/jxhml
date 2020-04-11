@@ -20,10 +20,12 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *       &lt;/sequence&gt;
- *       &lt;attribute name="name" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
- *       &lt;attribute name="type" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="ise_id" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="type" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="name" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="value" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="valuetype" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="valueunit" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="timestamp" type="{http://www.w3.org/2001/XMLSchema}int" /&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -40,43 +42,47 @@ public class Datapoint
 {
 
     private final static long serialVersionUID = 1L;
-    @XmlAttribute(name = "name")
-    protected String name;
-    @XmlAttribute(name = "type")
-    protected String type;
     @XmlAttribute(name = "ise_id")
     protected String iseId;
+    @XmlAttribute(name = "type")
+    protected String type;
+    @XmlAttribute(name = "name")
+    protected String name;
     @XmlAttribute(name = "value")
     protected String value;
+    @XmlAttribute(name = "valuetype")
+    protected String valuetype;
+    @XmlAttribute(name = "valueunit")
+    protected String valueunit;
     @XmlAttribute(name = "timestamp")
     protected Integer timestamp;
 
     /**
-     * Gets the value of the name property.
+     * Gets the value of the iseId property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getName() {
-        return name;
+    public String getIseId() {
+        return iseId;
     }
 
     /**
-     * Sets the value of the name property.
+     * Sets the value of the iseId property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setName(String value) {
-        this.name = value;
+    public void setIseId(String value) {
+        this.iseId = value;
     }
 
-    public boolean isSetName() {
-        return (this.name!= null);
+    public boolean isSetIseId() {
+        return (this.iseId!= null);
     }
 
     /**
@@ -108,31 +114,31 @@ public class Datapoint
     }
 
     /**
-     * Gets the value of the iseId property.
+     * Gets the value of the name property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getIseId() {
-        return iseId;
+    public String getName() {
+        return name;
     }
 
     /**
-     * Sets the value of the iseId property.
+     * Sets the value of the name property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setIseId(String value) {
-        this.iseId = value;
+    public void setName(String value) {
+        this.name = value;
     }
 
-    public boolean isSetIseId() {
-        return (this.iseId!= null);
+    public boolean isSetName() {
+        return (this.name!= null);
     }
 
     /**
@@ -161,6 +167,62 @@ public class Datapoint
 
     public boolean isSetValue() {
         return (this.value!= null);
+    }
+
+    /**
+     * Gets the value of the valuetype property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getValuetype() {
+        return valuetype;
+    }
+
+    /**
+     * Sets the value of the valuetype property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setValuetype(String value) {
+        this.valuetype = value;
+    }
+
+    public boolean isSetValuetype() {
+        return (this.valuetype!= null);
+    }
+
+    /**
+     * Gets the value of the valueunit property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getValueunit() {
+        return valueunit;
+    }
+
+    /**
+     * Sets the value of the valueunit property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setValueunit(String value) {
+        this.valueunit = value;
+    }
+
+    public boolean isSetValueunit() {
+        return (this.valueunit!= null);
     }
 
     /**

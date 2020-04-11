@@ -24,8 +24,8 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence&gt;
  *         &lt;element ref="{}datapoint" maxOccurs="unbounded"/&gt;
  *       &lt;/sequence&gt;
+ *       &lt;attribute name="ise_id" type="{http://www.w3.org/2001/XMLSchema}long" /&gt;
  *       &lt;attribute name="name" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
- *       &lt;attribute name="ise_id" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -45,10 +45,10 @@ public class Channel
     private final static long serialVersionUID = 1L;
     @XmlElement(required = true)
     protected List<Datapoint> datapoint;
+    @XmlAttribute(name = "ise_id")
+    protected Long iseId;
     @XmlAttribute(name = "name")
     protected String name;
-    @XmlAttribute(name = "ise_id")
-    protected String iseId;
 
     /**
      * Gets the value of the datapoint property.
@@ -88,6 +88,38 @@ public class Channel
     }
 
     /**
+     * Gets the value of the iseId property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
+     */
+    public long getIseId() {
+        return iseId;
+    }
+
+    /**
+     * Sets the value of the iseId property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Long }
+     *     
+     */
+    public void setIseId(long value) {
+        this.iseId = value;
+    }
+
+    public boolean isSetIseId() {
+        return (this.iseId!= null);
+    }
+
+    public void unsetIseId() {
+        this.iseId = null;
+    }
+
+    /**
      * Gets the value of the name property.
      * 
      * @return
@@ -113,34 +145,6 @@ public class Channel
 
     public boolean isSetName() {
         return (this.name!= null);
-    }
-
-    /**
-     * Gets the value of the iseId property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getIseId() {
-        return iseId;
-    }
-
-    /**
-     * Sets the value of the iseId property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setIseId(String value) {
-        this.iseId = value;
-    }
-
-    public boolean isSetIseId() {
-        return (this.iseId!= null);
     }
 
 }

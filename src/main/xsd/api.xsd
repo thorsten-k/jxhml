@@ -53,8 +53,8 @@
             <xsd:sequence>
             	<xsd:element ref="datapoint" maxOccurs="unbounded"/>
             </xsd:sequence>
+            <xsd:attribute name="ise_id" type="xsd:long"/>
             <xsd:attribute name="name" type="xsd:string"/>
-				<xsd:attribute name="ise_id" type="xsd:string"/>
         </xsd:complexType>
     </xsd:element>
     <xsd:element name="datapoint">
@@ -62,11 +62,13 @@
             <xsd:sequence>
 					
             </xsd:sequence>
-            <xsd:attribute name="name" type="xsd:string"/>
+            <xsd:attribute name="ise_id" type="xsd:string"/>
             <xsd:attribute name="type" type="xsd:string"/>
-				<xsd:attribute name="ise_id" type="xsd:string"/>
-				<xsd:attribute name="value" type="xsd:string"/>
-				<xsd:attribute name="timestamp" type="xsd:int"/>
+			<xsd:attribute name="name" type="xsd:string"/>
+			<xsd:attribute name="value" type="xsd:string"/>
+			<xsd:attribute name="valuetype" type="xsd:string"/>
+			<xsd:attribute name="valueunit" type="xsd:string"/>
+			<xsd:attribute name="timestamp" type="xsd:int"/>
         </xsd:complexType>
     </xsd:element>
 </xsd:schema>

@@ -9,5 +9,5 @@ public interface HomematicJavaApi
 	Version version();
 	Devices devicesId();
 	Devices devicesDetail();
-	Device device(String id);
+	Device device(String code);
 }
