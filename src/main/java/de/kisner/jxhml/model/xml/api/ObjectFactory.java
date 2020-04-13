@@ -77,4 +77,20 @@ public class ObjectFactory {
         return new State();
     }
 
+    /**
+     * Create an instance of {@link RssiList }
+     * 
+     */
+    public RssiList createRssiList() {
+        return new RssiList();
+    }
+
+    /**
+     * Create an instance of {@link Rssi }
+     * 
+     */
+    public Rssi createRssi() {
+        return new Rssi();
+    }
+
 }

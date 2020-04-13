@@ -9,5 +9,7 @@ public interface HomematicJavaApi
 	Version version();
 	Devices devicesId();
 	Devices devicesDetail();
-	Device device(String code);
+	Devices devicesRssi();
+	Device deviceWithChannels(String code);
+//	Device deviceWithData(String code);
 }

@@ -71,4 +71,19 @@
 			<xsd:attribute name="timestamp" type="xsd:int"/>
         </xsd:complexType>
     </xsd:element>
+    
+    <xsd:element name="rssiList">
+        <xsd:complexType>
+            <xsd:sequence>
+            	<xsd:element ref="rssi" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="rssi">
+        <xsd:complexType>
+            <xsd:attribute name="device" type="xsd:string"/>
+			<xsd:attribute name="rx" type="xsd:int"/>
+			<xsd:attribute name="txt" type="xsd:int"/>
+        </xsd:complexType>
+    </xsd:element>
 </xsd:schema>
