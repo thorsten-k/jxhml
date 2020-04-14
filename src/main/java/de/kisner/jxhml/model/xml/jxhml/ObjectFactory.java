@@ -85,4 +85,20 @@ public class ObjectFactory {
         return new Channel();
     }
 
+    /**
+     * Create an instance of {@link Datas }
+     * 
+     */
+    public Datas createDatas() {
+        return new Datas();
+    }
+
+    /**
+     * Create an instance of {@link Data }
+     * 
+     */
+    public Data createData() {
+        return new Data();
+    }
+
 }

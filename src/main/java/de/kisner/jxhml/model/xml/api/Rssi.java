@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;attribute name="device" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="rx" type="{http://www.w3.org/2001/XMLSchema}int" /&gt;
- *       &lt;attribute name="txt" type="{http://www.w3.org/2001/XMLSchema}int" /&gt;
+ *       &lt;attribute name="tx" type="{http://www.w3.org/2001/XMLSchema}int" /&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -40,8 +40,8 @@ public class Rssi
     protected String device;
     @XmlAttribute(name = "rx")
     protected Integer rx;
-    @XmlAttribute(name = "txt")
-    protected Integer txt;
+    @XmlAttribute(name = "tx")
+    protected Integer tx;
 
     /**
      * Gets the value of the device property.
@@ -104,35 +104,35 @@ public class Rssi
     }
 
     /**
-     * Gets the value of the txt property.
+     * Gets the value of the tx property.
      * 
      * @return
      *     possible object is
      *     {@link Integer }
      *     
      */
-    public int getTxt() {
-        return txt;
+    public int getTx() {
+        return tx;
     }
 
     /**
-     * Sets the value of the txt property.
+     * Sets the value of the tx property.
      * 
      * @param value
      *     allowed object is
      *     {@link Integer }
      *     
      */
-    public void setTxt(int value) {
-        this.txt = value;
+    public void setTx(int value) {
+        this.tx = value;
     }
 
-    public boolean isSetTxt() {
-        return (this.txt!= null);
+    public boolean isSetTx() {
+        return (this.tx!= null);
     }
 
-    public void unsetTxt() {
-        this.txt = null;
+    public void unsetTx() {
+        this.tx = null;
     }
 
 }

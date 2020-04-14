@@ -23,6 +23,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element ref="{http://jxhml.kisner.de}type"/&gt;
  *         &lt;element ref="{http://jxhml.kisner.de}radio"/&gt;
  *         &lt;element ref="{http://jxhml.kisner.de}channels"/&gt;
+ *         &lt;element ref="{http://jxhml.kisner.de}datas"/&gt;
  *       &lt;/sequence&gt;
  *       &lt;attribute name="id" type="{http://www.w3.org/2001/XMLSchema}long" /&gt;
  *       &lt;attribute name="code" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
@@ -38,7 +39,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "type",
     "radio",
-    "channels"
+    "channels",
+    "datas"
 })
 @XmlRootElement(name = "device")
 public class Device
@@ -52,6 +54,8 @@ public class Device
     protected Radio radio;
     @XmlElement(required = true)
     protected Channels channels;
+    @XmlElement(required = true)
+    protected Datas datas;
     @XmlAttribute(name = "id")
     protected Long id;
     @XmlAttribute(name = "code")
@@ -141,6 +145,34 @@ public class Device
 
     public boolean isSetChannels() {
         return (this.channels!= null);
+    }
+
+    /**
+     * Gets the value of the datas property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Datas }
+     *     
+     */
+    public Datas getDatas() {
+        return datas;
+    }
+
+    /**
+     * Sets the value of the datas property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Datas }
+     *     
+     */
+    public void setDatas(Datas value) {
+        this.datas = value;
+    }
+
+    public boolean isSetDatas() {
+        return (this.datas!= null);
     }
 
     /**
