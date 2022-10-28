@@ -1,5 +1,6 @@
 package de.kisner.jxhml.handler;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,43 +13,44 @@ import de.kisner.jxhml.api.HomematicJavaBridge;
 import de.kisner.jxhml.api.rs.HomematicJsonRest;
 import de.kisner.jxhml.api.rs.HomematicXmlRest;
 import de.kisner.jxhml.factory.json.hm.JsonHmContainerFactory;
+import de.kisner.jxhml.factory.json.hm.JsonHmVersionFactory;
 import de.kisner.jxhml.factory.json.rpc.JsonRpcFactory;
 import de.kisner.jxhml.factory.xml.XmlDataFactory;
 import de.kisner.jxhml.factory.xml.XmlDatasFactory;
 import de.kisner.jxhml.factory.xml.XmlDeviceFactory;
 import de.kisner.jxhml.factory.xml.XmlDevicesFactory;
-import de.kisner.jxhml.factory.xml.XmlVersionFactory;
 import de.kisner.jxhml.model.json.hm.JsonHmContainer;
-import de.kisner.jxhml.model.json.rpc.response.JsonRpcLoginResponse;
+import de.kisner.jxhml.model.json.hm.JsonHmVersion;
+import de.kisner.jxhml.model.json.rpc.hm.JsonRpcVersionLocal;
+import de.kisner.jxhml.model.json.rpc.hm.JsonRpcVersionOnline;
+import de.kisner.jxhml.model.json.rpc.response.JsonRpcAddonVersionResponse;
+import de.kisner.jxhml.model.json.rpc.response.JsonRpcAddonVersionResponse.JsonRpcVersionResult;
+import de.kisner.jxhml.model.json.rpc.response.JsonRpcResultResponse;
 import de.kisner.jxhml.model.json.rpc.response.JsonRpcRoomResponse;
 import de.kisner.jxhml.model.xml.api.Device;
 import de.kisner.jxhml.model.xml.api.Rssi;
 import de.kisner.jxhml.model.xml.jxhml.Datas;
 import de.kisner.jxhml.model.xml.jxhml.Devices;
-import de.kisner.jxhml.model.xml.jxhml.Version;
-import net.sf.exlp.util.io.JsonUtil;
 
 public class HomematicBridgeHandler implements HomematicJavaBridge
 {
 	final static Logger logger = LoggerFactory.getLogger(HomematicBridgeHandler.class);
 	
 	private final JsonSsiCredential credential;
-	private final HomematicXmlRest rest;
+	private final HomematicXmlRest restXml;
 	private final HomematicJsonRest restJson;
 	
-	public HomematicBridgeHandler(JsonSsiCredential credential, HomematicXmlRest rest, HomematicJsonRest restJson)
+	public HomematicBridgeHandler(JsonSsiCredential credential, HomematicXmlRest restXml, HomematicJsonRest restJson)
 	{
 		this.credential=credential;
-		this.rest=rest;
+		this.restXml=restXml;
 		this.restJson=restJson;
 	}
-
-	@Override public Version version() {return XmlVersionFactory.version(rest.version());}
 
 	@Override public Devices devicesId()
 	{
 		Devices xml = XmlDevicesFactory.build();
-		for(Device d : rest.deviceList().getDevice())
+		for(Device d : restXml.deviceList().getDevice())
 		{
 			xml.getDevice().add(XmlDeviceFactory.id(d));
 		}
@@ -59,7 +61,7 @@ public class HomematicBridgeHandler implements HomematicJavaBridge
 	@Override public Devices devicesDetail()
 	{
 		Devices xml = XmlDevicesFactory.build();
-		for(Device d : rest.deviceList().getDevice())
+		for(Device d : restXml.deviceList().getDevice())
 		{
 			xml.getDevice().add(XmlDeviceFactory.withChannels(d));
 		}
@@ -69,7 +71,7 @@ public class HomematicBridgeHandler implements HomematicJavaBridge
 
 	@Override public de.kisner.jxhml.model.xml.jxhml.Device deviceWithChannels(String id)
 	{
-		for(Device d : rest.deviceList().getDevice())
+		for(Device d : restXml.deviceList().getDevice())
 		{
 			if(d.getIseId().equals(id)) {return XmlDeviceFactory.withChannels(d);}
 		}
@@ -89,7 +91,7 @@ public class HomematicBridgeHandler implements HomematicJavaBridge
 		logger.info("Map: "+map.size());
 		
 		Devices xml = XmlDevicesFactory.build();
-		for(Rssi rssi : rest.rssiList().getRssi())
+		for(Rssi rssi : restXml.rssiList().getRssi())
 		{
 			if(map.containsKey(rssi.getDevice()))
 			{
@@ -110,11 +112,39 @@ public class HomematicBridgeHandler implements HomematicJavaBridge
 		return xml;
 	}
 
+	@Override
+	public JsonHmContainer versions()
+	{
+		JsonHmContainer response = JsonHmContainerFactory.build();
+		response.setVersions(new ArrayList<>());
+		Map<String,JsonHmVersion> map = new HashMap<>();
+		
+		JsonRpcResultResponse login = restJson.login(JsonRpcFactory.login(credential));
+		
+		JsonRpcResultResponse vCcu = restJson.versionCcu(JsonRpcFactory.versionCcu(login.getResult()));
+		response.getVersions().add(JsonHmVersionFactory.buildLocal("CCU",vCcu.getResult()));
+		
+		JsonRpcAddonVersionResponse vAddonResponse = restJson.versionAddon(JsonRpcFactory.versionAddon(login.getResult()));
+		JsonRpcVersionResult vAddon = vAddonResponse.getResult();
+		
+		for(JsonRpcVersionLocal v : vAddon.getLocal())
+		{
+			if(!map.containsKey(v.getName())) {map.put(v.getName(),JsonHmVersionFactory.build(v));}
+		}
+		for(JsonRpcVersionOnline v : vAddon.getOnline())
+		{
+			if(!map.containsKey(v.getName())) {map.put(v.getName(),JsonHmVersionFactory.build(v));}
+			map.get(v.getName()).setWeb(v.getWebversion());
+		}
+		response.getVersions().addAll(map.values());
+		
+		return response;
+	}
+	
 	@Override public JsonHmContainer rooms()
 	{
-		JsonRpcLoginResponse login = restJson.login(JsonRpcFactory.login("Admin","admin"));
+		JsonRpcResultResponse login = restJson.login(JsonRpcFactory.login(credential));
 		JsonRpcRoomResponse response = restJson.rooms(JsonRpcFactory.rooms(login.getResult()));
-		JsonUtil.info(response);
 		return JsonHmContainerFactory.build(response);
 	}
 }

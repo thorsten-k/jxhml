@@ -25,10 +25,13 @@ public class JsonRpcFactory
 		return json;
 	}
 	
-	public static JsonRpcRequest rooms(String session)
+	public static JsonRpcRequest versionCcu(String session){return sessionRequest("CCU.getVersion", session);}
+	public static JsonRpcRequest versionAddon(String session){return sessionRequest("CCU.getAddonVersions", session);}
+	public static JsonRpcRequest rooms(String session){return sessionRequest("Room.getAll", session);}
+	private static JsonRpcRequest sessionRequest(String command, String session)
 	{
 		JsonRpcRequest json = new JsonRpcRequest();
-		json.setMethod("Room.getAll");
+		json.setMethod(command);
 		
 		JsonRpcRequest.JsonRpcRequestParams params = json.new JsonRpcRequestParams();
 		params.setSession(session);

@@ -12,14 +12,6 @@
             </jaxb:globalBindings>
         </xsd:appinfo>
     </xsd:annotation>
-	<xsd:element name="version">
-        <xsd:complexType>
-            <xsd:simpleContent>
-                <xsd:extension base="xsd:string">
-                </xsd:extension>
-            </xsd:simpleContent>
-        </xsd:complexType>
-    </xsd:element>
 	<xsd:element name="devices">
         <xsd:complexType>
             <xsd:sequence>

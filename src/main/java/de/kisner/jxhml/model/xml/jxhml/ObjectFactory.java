@@ -29,13 +29,7 @@ public class ObjectFactory {
     public ObjectFactory() {
     }
 
-    /**
-     * Create an instance of {@link Version }
-     * 
-     */
-    public Version createVersion() {
-        return new Version();
-    }
+   
 
     /**
      * Create an instance of {@link Devices }

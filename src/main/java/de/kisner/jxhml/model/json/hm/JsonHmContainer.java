@@ -17,4 +17,9 @@ public class JsonHmContainer implements Serializable
 	public List<JsonHmRoom> rooms;
 	public List<JsonHmRoom> getRooms() {return rooms;}
 	public void setRooms(List<JsonHmRoom> rooms) {this.rooms = rooms;}
+	
+	@JsonProperty("versions")
+	private List<JsonHmVersion> versions;
+	public List<JsonHmVersion> getVersions() {return versions;}
+	public void setVersions(List<JsonHmVersion> versions) {this.versions = versions;}
 }

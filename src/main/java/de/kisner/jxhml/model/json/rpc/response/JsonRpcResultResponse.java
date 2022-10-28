@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName(value="response")
-public class JsonRpcLoginResponse implements Serializable
+public class JsonRpcResultResponse implements Serializable
 {
 	public static final long serialVersionUID=1;
 	
