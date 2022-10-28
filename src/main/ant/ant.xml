@@ -19,6 +19,10 @@
 	<property name="rngom.lib" value="${user.home}/.m2/repository/com/sun/xml/bind/external/rngom/${jaxb.version}/rngom-${jaxb.version}.jar"/>
 	<property name="relaxng.lib" value="${user.home}/.m2/repository/relaxngDatatype/relaxngDatatype/20020414/relaxngDatatype-20020414.jar"/>	
 	
+	<!-- Upgrade to java11 -->
+	<property name="jaxb-jakarta.lib" value="${user.home}/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/2.3.2/jakarta.xml.bind-api-2.3.2.jar"/>
+	<property name="activation.lib" value="${user.home}/.m2/repository/javax/activation/activation/1.1.1/activation-1.1.1.jar"/>
+	
 	<target name="1 - JAXB Class generation" description="Compiles all JAXB classes">
 		<echo level="info">Using Maven-Repository: ${user.home}/.m2</echo>
 		<echo level="info">      jaxb-xjc.lib=${jaxb-xjc.lib}</echo>
@@ -31,10 +35,13 @@
 		<echo level="info">          xsom.lib=${xsom.lib}</echo>
 		<echo level="info">         rngom.lib=${rngom.lib}</echo>
 		<echo level="info">       relaxng.lib=${relaxng.lib}</echo>
+		<echo level="info">Migration</echo>
+		<echo level="info">     jaxb-jakarta.lib=${jaxb-jakarta.lib}</echo>
+		<echo level="info">     activation.lib=${activation.lib}</echo>
 		<echo level="info">Creating JAXB</echo>
-		<echo level="info">basedir = ${basedir}</echo>
-		<echo level="info">src.dir = ${src.dir}</echo>
-		<echo level="info">xsd.dir = ${xsd.dir}</echo>
+		<echo level="info">     basedir = ${basedir}</echo>
+		<echo level="info">     src.dir = ${src.dir}</echo>
+		<echo level="info">     xsd.dir = ${xsd.dir}</echo>
 		<java classname="com.sun.tools.xjc.XJCFacade" fork="true" failonerror="true"  maxmemory="128m">
 			<arg value="-extension"/>
 			<arg value="${xsd.dir}/api.xsd"/>
@@ -46,6 +53,7 @@
 				<pathelement location="${jaxb-xjc.lib}"/>
 				<pathelement location="${jaxb-core.lib}"/>
 				<pathelement location="${jaxb-runtime.lib}"/>
+				
 				<pathelement location="${codemodel.lib}"/>
 				<pathelement location="${txw2.lib}"/>
 				<pathelement location="${istack-tools.lib}"/>
@@ -53,6 +61,9 @@
 				<pathelement location="${xsom.lib}"/>
 				<pathelement location="${rngom.lib}"/>
 				<pathelement location="${relaxng.lib}"/>
+				
+				<pathelement location="${jaxb-jakarta.lib}"/>
+				<pathelement location="${activation.lib}"/>
 			</classpath>
 		</java>
 		<java classname="com.sun.tools.xjc.XJCFacade" fork="true" failonerror="true"  maxmemory="128m">
@@ -73,6 +84,9 @@
 				<pathelement location="${xsom.lib}"/>
 				<pathelement location="${rngom.lib}"/>
 				<pathelement location="${relaxng.lib}"/>
+				
+				<pathelement location="${jaxb-jakarta.lib}"/>
+				<pathelement location="${activation.lib}"/>
 			</classpath>
 		</java>
 

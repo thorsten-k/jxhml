@@ -4,32 +4,43 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.jeesl.model.json.system.io.ssi.JsonSsiCredential;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.kisner.jxhml.api.HomematicJavaApi;
-import de.kisner.jxhml.api.HomematicXmlApi;
+import de.kisner.jxhml.api.HomematicJavaBridge;
+import de.kisner.jxhml.api.rs.HomematicJsonRest;
+import de.kisner.jxhml.api.rs.HomematicXmlRest;
+import de.kisner.jxhml.factory.json.hm.JsonHmContainerFactory;
+import de.kisner.jxhml.factory.json.rpc.JsonRpcFactory;
 import de.kisner.jxhml.factory.xml.XmlDataFactory;
 import de.kisner.jxhml.factory.xml.XmlDatasFactory;
 import de.kisner.jxhml.factory.xml.XmlDeviceFactory;
 import de.kisner.jxhml.factory.xml.XmlDevicesFactory;
 import de.kisner.jxhml.factory.xml.XmlVersionFactory;
+import de.kisner.jxhml.model.json.hm.JsonHmContainer;
+import de.kisner.jxhml.model.json.rpc.response.JsonRpcLoginResponse;
+import de.kisner.jxhml.model.json.rpc.response.JsonRpcRoomResponse;
 import de.kisner.jxhml.model.xml.api.Device;
 import de.kisner.jxhml.model.xml.api.Rssi;
 import de.kisner.jxhml.model.xml.jxhml.Datas;
 import de.kisner.jxhml.model.xml.jxhml.Devices;
 import de.kisner.jxhml.model.xml.jxhml.Version;
+import net.sf.exlp.util.io.JsonUtil;
 
-
-public class HomematicXmlHandler implements HomematicJavaApi
+public class HomematicBridgeHandler implements HomematicJavaBridge
 {
-	final static Logger logger = LoggerFactory.getLogger(HomematicXmlHandler.class);
+	final static Logger logger = LoggerFactory.getLogger(HomematicBridgeHandler.class);
 	
-	private final HomematicXmlApi rest;
+	private final JsonSsiCredential credential;
+	private final HomematicXmlRest rest;
+	private final HomematicJsonRest restJson;
 	
-	public HomematicXmlHandler(HomematicXmlApi rest)
+	public HomematicBridgeHandler(JsonSsiCredential credential, HomematicXmlRest rest, HomematicJsonRest restJson)
 	{
+		this.credential=credential;
 		this.rest=rest;
+		this.restJson=restJson;
 	}
 
 	@Override public Version version() {return XmlVersionFactory.version(rest.version());}
@@ -97,5 +108,13 @@ public class HomematicXmlHandler implements HomematicJavaApi
 		}
 		
 		return xml;
+	}
+
+	@Override public JsonHmContainer rooms()
+	{
+		JsonRpcLoginResponse login = restJson.login(JsonRpcFactory.login("Admin","admin"));
+		JsonRpcRoomResponse response = restJson.rooms(JsonRpcFactory.rooms(login.getResult()));
+		JsonUtil.info(response);
+		return JsonHmContainerFactory.build(response);
 	}
 }

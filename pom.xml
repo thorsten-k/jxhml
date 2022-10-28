@@ -23,6 +23,16 @@
 	<dependencies>		
 	
 		<dependency>
+			<groupId>org.jeesl</groupId>
+    		<artifactId>jeesl-xml</artifactId>
+			<version>0.3.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.exlp</groupId>
+    		<artifactId>exlp-util</artifactId>
+		</dependency>
+		
+		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-jaxrs</artifactId>
 			<version>3.0.1.Final</version>
@@ -37,6 +47,20 @@
             		<groupId>org.slf4j</groupId>
             	</exclusion>
 			</exclusions>
+		</dependency>
+		
+		<!-- JSON -->
+   	   	<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.6.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+		   <groupId>com.fasterxml.jackson.datatype</groupId>
+		   <artifactId>jackson-datatype-jsr310</artifactId>
+		   <scope>provided</scope>
+		   <version>2.6.0</version>
 		</dependency>
 	
 		<!-- Logging -->
@@ -123,7 +147,7 @@
 			<dependency>
 				<groupId>net.sf.exlp</groupId>
     			<artifactId>exlp-bom</artifactId>
-    			<version>0.1.12-SNAPSHOT</version>
+    			<version>0.1.15-SNAPSHOT</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>

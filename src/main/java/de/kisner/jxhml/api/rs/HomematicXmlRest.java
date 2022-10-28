@@ -1,4 +1,4 @@
-package de.kisner.jxhml.api;
+package de.kisner.jxhml.api.rs;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -12,7 +12,7 @@ import de.kisner.jxhml.model.xml.api.State;
 import de.kisner.jxhml.model.xml.api.Version;
 
 @Path("/addons/xmlapi")
-public interface HomematicXmlApi
+public interface HomematicXmlRest
 {
 	@GET @Path("/version.cgi") @Produces(MediaType.APPLICATION_XML)
 	Version version();
@@ -32,5 +32,6 @@ public interface HomematicXmlApi
 	@GET @Path("/state.cgi") @Produces(MediaType.APPLICATION_XML)
 	State stateDatapoint(@QueryParam("datapoint_id") String datapointId);
 	
-	
+	@GET @Path("/roomlist.cgi") @Produces(MediaType.APPLICATION_JSON)
+	String roomList();
 }
