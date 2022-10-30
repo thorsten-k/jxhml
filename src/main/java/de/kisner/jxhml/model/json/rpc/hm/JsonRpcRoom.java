@@ -29,10 +29,6 @@ public class JsonRpcRoom implements Serializable
 	
 	@JsonProperty("channelIds")
 	private String[] channelIds;
-	public String[] getChannelIds() {
-		return channelIds;
-	}
-	public void setChannelIds(String[] channelIds) {
-		this.channelIds = channelIds;
-	}
+	public String[] getChannelIds() {return channelIds;}
+	public void setChannelIds(String[] channelIds) {this.channelIds = channelIds;}
 }

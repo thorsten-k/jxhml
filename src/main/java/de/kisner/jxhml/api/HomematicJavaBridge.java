@@ -8,10 +8,11 @@ public interface HomematicJavaBridge
 {
 	Devices devicesId();
 	Devices devicesDetail();
-	Devices devicesRssi();
+
 	Device deviceWithChannels(String code);
 //	Device deviceWithData(String code);
 	
 	JsonHmContainer versions();
+	JsonHmContainer devices();
 	JsonHmContainer rooms();
 }

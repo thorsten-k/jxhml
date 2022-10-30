@@ -7,22 +7,15 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import de.kisner.jxhml.model.xml.api.DeviceList;
-import de.kisner.jxhml.model.xml.api.RssiList;
 import de.kisner.jxhml.model.xml.api.State;
-import de.kisner.jxhml.model.xml.api.Version;
 
 @Path("/addons/xmlapi")
 public interface HomematicXmlRest
 {
-	@GET @Path("/version.cgi") @Produces(MediaType.APPLICATION_XML)
-	Version version();
 	
 	@GET @Path("/devicelist.cgi") @Produces(MediaType.APPLICATION_XML)
 	DeviceList deviceList();
-	
-	@GET @Path("/rssilist.cgi") @Produces(MediaType.APPLICATION_XML)
-	RssiList rssiList();
-	
+		
 	@GET @Path("/state.cgi") @Produces(MediaType.APPLICATION_XML)
 	State stateDevice(@QueryParam("device_id") String deviceId);
 	
@@ -31,7 +24,4 @@ public interface HomematicXmlRest
 	
 	@GET @Path("/state.cgi") @Produces(MediaType.APPLICATION_XML)
 	State stateDatapoint(@QueryParam("datapoint_id") String datapointId);
-	
-	@GET @Path("/roomlist.cgi") @Produces(MediaType.APPLICATION_JSON)
-	String roomList();
 }

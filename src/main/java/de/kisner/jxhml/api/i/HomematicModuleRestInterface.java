@@ -8,10 +8,9 @@ import de.kisner.jxhml.model.xml.jxhml.Devices;
 
 public interface HomematicModuleRestInterface
 {
-	void updateDevices(Devices devices);
 	void updateRssi(Devices devices);
-	void updateChannels(Device device);
 	void update(@PathParam("code") String code, @PathParam("value") String value);
 	
+	void updateDevices(JsonHmContainer devices);
 	void updateRooms(JsonHmContainer rooms);
 }

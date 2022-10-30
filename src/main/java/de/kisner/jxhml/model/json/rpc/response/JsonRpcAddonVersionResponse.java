@@ -20,9 +20,9 @@ public class JsonRpcAddonVersionResponse implements Serializable
 	public void setVersion(String version) {this.version = version;}
 	
 	@JsonProperty("error")
-	private String error;
-	public String getError() {return error;}
-	public void setError(String error) {this.error = error;}
+	private JsonRpcError error;
+	public JsonRpcError getError() {return error;}
+	public void setError(JsonRpcError error) {this.error = error;}
 
 	@JsonProperty("result")
 	private JsonRpcVersionResult result;

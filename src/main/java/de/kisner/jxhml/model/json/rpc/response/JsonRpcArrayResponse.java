@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName(value="response")
-public class JsonRpcResultResponse implements Serializable
+public class JsonRpcArrayResponse implements Serializable
 {
 	public static final long serialVersionUID=1;
 	
@@ -16,9 +16,9 @@ public class JsonRpcResultResponse implements Serializable
 	public void setVersion(String version) {this.version = version;}
 
 	@JsonProperty("result")
-	private String result;
-	public String getResult() {return result;}
-	public void setResult(String result) {this.result = result;}
+	private String[] result;
+	public String[] getResult() {return result;}
+	public void setResult(String[] result) {this.result = result;}
 
 	@JsonProperty("error")
 	private String error;

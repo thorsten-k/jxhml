@@ -13,13 +13,20 @@ public class JsonHmContainer implements Serializable
 {
 	public static final long serialVersionUID=1;
 	
+	@JsonProperty("versions")
+	private List<JsonHmVersion> versions;
+	public List<JsonHmVersion> getVersions() {return versions;}
+	public void setVersions(List<JsonHmVersion> versions) {this.versions = versions;}
+	
+	@JsonProperty("devices")
+	private List<JsonHmDevice> devices;
+	public List<JsonHmDevice> getDevices() {return devices;}
+	public void setDevices(List<JsonHmDevice> devices) {this.devices = devices;}
+
 	@JsonProperty("rooms")
 	public List<JsonHmRoom> rooms;
 	public List<JsonHmRoom> getRooms() {return rooms;}
 	public void setRooms(List<JsonHmRoom> rooms) {this.rooms = rooms;}
 	
-	@JsonProperty("versions")
-	private List<JsonHmVersion> versions;
-	public List<JsonHmVersion> getVersions() {return versions;}
-	public void setVersions(List<JsonHmVersion> versions) {this.versions = versions;}
+	
 }

@@ -1,5 +1,8 @@
 package de.kisner.jxhml.factory.json.hm;
 
+import java.util.ArrayList;
+import java.util.Objects;
+
 import de.kisner.jxhml.model.json.hm.JsonHmRoom;
 import de.kisner.jxhml.model.json.rpc.hm.JsonRpcRoom;
 
@@ -13,6 +16,14 @@ public class JsonHmRoomFactory
 		json.setCode(room.getId());
 		json.setName(room.getName());
 		
+		if(Objects.nonNull(room.getChannelIds()))
+		{
+			json.setChannels(new ArrayList<>());
+			for(String code : room.getChannelIds())
+			{
+				json.getChannels().add(JsonHmChannelFactory.build(code));
+			}
+		}
 		return json;
 	}
 }
