@@ -9,7 +9,6 @@ import javax.ws.rs.core.MediaType;
 
 import de.kisner.jxhml.api.i.HomematicModuleRestInterface;
 import de.kisner.jxhml.model.json.hm.JsonHmContainer;
-import de.kisner.jxhml.model.xml.jxhml.Device;
 import de.kisner.jxhml.model.xml.jxhml.Devices;
 
 @Path("/homematic")
@@ -20,6 +19,9 @@ public interface HomematicModuleRest extends HomematicModuleRestInterface
 	
 	@POST @Path("/update/rooms") @Consumes(MediaType.APPLICATION_JSON)
 	void updateRooms(JsonHmContainer rooms);
+	
+	@POST @Path("/update/subsections") @Consumes(MediaType.APPLICATION_JSON)
+	void updateSubsections(JsonHmContainer subsections);
 	
 	
 	@POST @Path("/device/update/rssi") @Consumes(MediaType.APPLICATION_XML)

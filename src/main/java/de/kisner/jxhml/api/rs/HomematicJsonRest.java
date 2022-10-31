@@ -17,6 +17,8 @@ import de.kisner.jxhml.model.json.rpc.response.JsonRpcInterfacesResponse;
 import de.kisner.jxhml.model.json.rpc.response.JsonRpcRoomResponse;
 import de.kisner.jxhml.model.json.rpc.response.JsonRpcRssiResponse;
 import de.kisner.jxhml.model.json.rpc.response.JsonRpcStringResponse;
+import de.kisner.jxhml.model.json.rpc.response.JsonRpcSubsectionResponse;
+import de.kisner.jxhml.model.json.rpc.response.JsonRpcSysVarResponse;
 
 @Path("/api")
 public interface HomematicJsonRest
@@ -25,7 +27,7 @@ public interface HomematicJsonRest
 	JsonRpcStringResponse login(JsonRpcLoginRequest request);
 	
 	@POST @Path("/homematic.cgi") @Produces(MediaType.APPLICATION_JSON) @Consumes(MediaType.APPLICATION_JSON)
-	String test(JsonRpcIdRequest request);
+	String test(JsonRpcRequest request);
 	
 	
 	@POST @Path("/homematic.cgi") @Produces(MediaType.TEXT_PLAIN) @Consumes(MediaType.APPLICATION_JSON)
@@ -33,6 +35,11 @@ public interface HomematicJsonRest
 	
 	@POST @Path("/homematic.cgi") @Produces(MediaType.TEXT_PLAIN) @Consumes(MediaType.APPLICATION_JSON)
 	JsonRpcAddonVersionResponse versionAddon(JsonRpcRequest request);
+	
+	
+	//Nicht vollständig
+	@POST @Path("/homematic.cgi") @Produces(MediaType.TEXT_PLAIN) @Consumes(MediaType.APPLICATION_JSON)
+	JsonRpcSysVarResponse sysVars(JsonRpcRequest request);
 	
 	
 	@POST @Path("/homematic.cgi") @Produces(MediaType.APPLICATION_JSON) @Consumes(MediaType.APPLICATION_JSON)
@@ -50,4 +57,11 @@ public interface HomematicJsonRest
 
 	@POST @Path("/homematic.cgi") @Produces(MediaType.APPLICATION_JSON) @Consumes(MediaType.APPLICATION_JSON)
 	JsonRpcRoomResponse rooms(JsonRpcRequest request);
+	
+	@POST @Path("/homematic.cgi") @Produces(MediaType.APPLICATION_JSON) @Consumes(MediaType.APPLICATION_JSON)
+	JsonRpcSubsectionResponse subsections(JsonRpcRequest request);
+	
+	//Liefert wenig infos
+	@POST @Path("/homematic.cgi") @Produces(MediaType.APPLICATION_JSON) @Consumes(MediaType.APPLICATION_JSON)
+	String channelValue(JsonRpcIdRequest request);
 }

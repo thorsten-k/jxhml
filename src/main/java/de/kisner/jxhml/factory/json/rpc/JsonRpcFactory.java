@@ -38,6 +38,18 @@ public class JsonRpcFactory
 		
 		return json;
 	}
+	public static JsonRpcIdRequest channelId(String session, String id)
+	{
+		JsonRpcIdRequest json = new JsonRpcIdRequest();
+		json.setMethod("Channel.getValue");
+		
+		JsonRpcIdRequest.JsonRpcIdRequestParams params = json.new JsonRpcIdRequestParams();
+		params.setSession(session);
+		params.setId(id);
+		json.setParams(params);
+		
+		return json;
+	}
 	
 	public static JsonRpcInterfaceRequest rssi(String session, String iface)
 	{
@@ -54,9 +66,11 @@ public class JsonRpcFactory
 	
 	public static JsonRpcRequest versionCcu(String session){return sessionRequest("CCU.getVersion", session);}
 	public static JsonRpcRequest versionAddon(String session){return sessionRequest("CCU.getAddonVersions", session);}
+	public static JsonRpcRequest sysVars(String session){return sessionRequest("SysVar.getAll", session);}
 	public static JsonRpcRequest devices(String session){return sessionRequest("Device.listAll", session);}
 	public static JsonRpcRequest interfaces(String session){return sessionRequest("Interface.listInterfaces", session);}
 	public static JsonRpcRequest rooms(String session){return sessionRequest("Room.getAll", session);}
+	public static JsonRpcRequest subsections(String session){return sessionRequest("Subsection.getAll", session);}
 	private static JsonRpcRequest sessionRequest(String command, String session)
 	{
 		JsonRpcRequest json = new JsonRpcRequest();

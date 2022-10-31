@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 import de.kisner.jxhml.model.json.hm.JsonHmContainer;
 import de.kisner.jxhml.model.json.rpc.hm.JsonRpcRoom;
+import de.kisner.jxhml.model.json.rpc.hm.JsonRpcSubsection;
 import de.kisner.jxhml.model.json.rpc.response.JsonRpcRoomResponse;
+import de.kisner.jxhml.model.json.rpc.response.JsonRpcSubsectionResponse;
 
 public class JsonHmContainerFactory
 {
@@ -22,5 +24,19 @@ public class JsonHmContainerFactory
 		
 		return json;
 	}
+	
+	public static JsonHmContainer build(JsonRpcSubsectionResponse response)
+	{
+		JsonHmContainer json = build();
+		json.setSubsections(new ArrayList<>());
+		
+		for(JsonRpcSubsection rpc : response.getResult())
+		{
+			json.getSubsections().add(JsonHmSubsectionFactory.build(rpc));
+		}
+		
+		return json;
+	}
+	
 	
 }

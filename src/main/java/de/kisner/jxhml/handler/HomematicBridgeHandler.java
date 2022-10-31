@@ -29,6 +29,7 @@ import de.kisner.jxhml.model.json.rpc.response.JsonRpcArrayResponse;
 import de.kisner.jxhml.model.json.rpc.response.JsonRpcDeviceResponse;
 import de.kisner.jxhml.model.json.rpc.response.JsonRpcRoomResponse;
 import de.kisner.jxhml.model.json.rpc.response.JsonRpcStringResponse;
+import de.kisner.jxhml.model.json.rpc.response.JsonRpcSubsectionResponse;
 import de.kisner.jxhml.model.xml.api.Device;
 import de.kisner.jxhml.model.xml.jxhml.Devices;
 import net.sf.exlp.util.io.JsonUtil;
@@ -127,16 +128,12 @@ public class HomematicBridgeHandler implements HomematicJavaBridge
 			{
 				JsonHmDevice hmDevcie = JsonHmDeviceFactory.build(rcpDevice.getResult());
 				
-				JsonUtil.info(rcpDevice);
-				JsonUtil.info(hmDevcie);
+				JsonUtil.trace(rcpDevice);
+				JsonUtil.trace(hmDevcie);
 				
 				response.getDevices().add(hmDevcie);
 			}
-			
-//			break;
 		}
-		
-		
 		return response;
 	}
 	
@@ -144,6 +141,13 @@ public class HomematicBridgeHandler implements HomematicJavaBridge
 	{
 		JsonRpcStringResponse login = restJson.login(JsonRpcFactory.login(credential));
 		JsonRpcRoomResponse response = restJson.rooms(JsonRpcFactory.rooms(login.getResult()));
+		return JsonHmContainerFactory.build(response);
+	}
+
+	@Override public JsonHmContainer subsections()
+	{
+		JsonRpcStringResponse login = restJson.login(JsonRpcFactory.login(credential));
+		JsonRpcSubsectionResponse response = restJson.subsections(JsonRpcFactory.subsections(login.getResult()));
 		return JsonHmContainerFactory.build(response);
 	}
 }
