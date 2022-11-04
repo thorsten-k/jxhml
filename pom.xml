@@ -72,6 +72,13 @@
 		   <scope>provided</scope>
 		   <version>2.6.0</version>
 		</dependency>
+		
+		<!-- XML -->
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
 	
 		<!-- Logging -->
 		<dependency>
