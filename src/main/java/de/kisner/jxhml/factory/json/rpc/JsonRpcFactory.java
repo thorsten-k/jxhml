@@ -1,6 +1,6 @@
 package de.kisner.jxhml.factory.json.rpc;
 
-import org.jeesl.model.json.system.io.ssi.JsonSsiCredential;
+import org.jeesl.model.json.io.ssi.core.JsonSsiCredential;
 
 import de.kisner.jxhml.model.json.rpc.request.JsonRpcIdRequest;
 import de.kisner.jxhml.model.json.rpc.request.JsonRpcInterfaceRequest;

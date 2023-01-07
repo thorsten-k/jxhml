@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import org.jeesl.model.json.system.io.ssi.JsonSsiCredential;
+import org.jeesl.model.json.io.ssi.core.JsonSsiCredential;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
