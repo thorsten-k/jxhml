@@ -25,17 +25,17 @@
 		<dependency>
 			<groupId>org.jeesl</groupId>
     		<artifactId>jeesl-xml</artifactId>
-			<version>0.3.0-SNAPSHOT</version>
+			<version>0.3.2-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jeesl</groupId>
     		<artifactId>jeesl-util</artifactId>
-			<version>0.3.0-SNAPSHOT</version>
+			<version>0.3.2-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jeesl</groupId>
     		<artifactId>jeesl-interfaces</artifactId>
-			<version>0.3.0-SNAPSHOT</version>
+			<version>0.3.2-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>net.sf.exlp</groupId>
