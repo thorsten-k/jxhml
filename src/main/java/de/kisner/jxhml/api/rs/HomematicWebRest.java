@@ -7,12 +7,12 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 
-import de.kisner.jxhml.api.i.HomematicModuleRestInterface;
+import de.kisner.jxhml.api.i.HomematicWebRestInterface;
 import de.kisner.jxhml.model.json.hm.JsonHmContainer;
 import de.kisner.jxhml.model.xml.jxhml.Devices;
 
 @Path("/homematic")
-public interface HomematicModuleRest extends HomematicModuleRestInterface
+public interface HomematicWebRest extends HomematicWebRestInterface
 {
 	@POST @Path("/devices/update") @Consumes(MediaType.APPLICATION_JSON)
 	void updateDevices(JsonHmContainer devices);

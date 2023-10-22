@@ -21,7 +21,7 @@ import de.kisner.jxhml.model.json.rpc.response.JsonRpcSubsectionResponse;
 import de.kisner.jxhml.model.json.rpc.response.JsonRpcSysVarResponse;
 
 @Path("/api")
-public interface HomematicJsonRest
+public interface HomematicCcuRest
 {
 	@POST @Path("/homematic.cgi") @Produces(MediaType.APPLICATION_JSON) @Consumes(MediaType.APPLICATION_JSON)
 	JsonRpcStringResponse login(JsonRpcLoginRequest request);

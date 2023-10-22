@@ -5,7 +5,7 @@ import javax.ws.rs.PathParam;
 import de.kisner.jxhml.model.json.hm.JsonHmContainer;
 import de.kisner.jxhml.model.xml.jxhml.Devices;
 
-public interface HomematicModuleRestInterface
+public interface HomematicWebRestInterface
 {
 	void updateDevices(JsonHmContainer devices);
 	void updateRooms(JsonHmContainer rooms);
