@@ -10,10 +10,16 @@ public interface HomematicJavaBridge
 	Devices devicesDetail();
 
 	Device deviceWithChannels(String code);
-//	Device deviceWithData(String code);
 	
+	/**
+	* Returns for installed components the version number. 
+	*
+	* @return      A JSON Object with a list of Version
+	* @see         Image
+	*/
 	JsonHmContainer versions();
-	JsonHmContainer devices();
+	
 	JsonHmContainer rooms();
 	JsonHmContainer subsections();
+	JsonHmContainer devices();
 }

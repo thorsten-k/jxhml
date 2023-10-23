@@ -49,28 +49,6 @@ public class HomematicBridgeHandler implements HomematicJavaBridge
 		this.restCcu=restJson;
 	}
 
-	@Override public Devices devicesId()
-	{
-		Devices xml = XmlDevicesFactory.build();
-		for(Device d : restXml.deviceList().getDevice())
-		{
-			xml.getDevice().add(XmlDeviceFactory.id(d));
-		}
-		
-		return xml;
-	}
-	
-	@Override public Devices devicesDetail()
-	{
-		Devices xml = XmlDevicesFactory.build();
-		for(Device d : restXml.deviceList().getDevice())
-		{
-			xml.getDevice().add(XmlDeviceFactory.withChannels(d));
-		}
-		
-		return xml;
-	}
-
 	@Override public de.kisner.jxhml.model.xml.jxhml.Device deviceWithChannels(String id)
 	{
 		for(Device d : restXml.deviceList().getDevice())
@@ -116,9 +94,11 @@ public class HomematicBridgeHandler implements HomematicJavaBridge
 		JsonRpcStringResponse login = restCcu.login(JsonRpcFactory.login(credential));
 		
 		JsonRpcArrayResponse list = restCcu.devices(JsonRpcFactory.devices(login.getResult()));
+		logger.info("Downloaded "+list.getResult().length+" device codes");
+		
 		for(String code : list.getResult())
 		{
-			logger.info(code);
+			logger.debug(code);
 			JsonRpcDeviceResponse rcpDevice = restCcu.device(JsonRpcFactory.device(login.getResult(),code));
 			if(Objects.nonNull(rcpDevice.getError()))
 			{
@@ -134,6 +114,7 @@ public class HomematicBridgeHandler implements HomematicJavaBridge
 				response.getDevices().add(hmDevcie);
 			}
 		}
+		logger.info("Downloaded "+response.getDevices().size()+" "+JsonHmDevice.class.getSimpleName());
 		return response;
 	}
 	
@@ -149,5 +130,29 @@ public class HomematicBridgeHandler implements HomematicJavaBridge
 		JsonRpcStringResponse login = restCcu.login(JsonRpcFactory.login(credential));
 		JsonRpcSubsectionResponse response = restCcu.subsections(JsonRpcFactory.subsections(login.getResult()));
 		return JsonHmContainerFactory.build(response);
+	}
+	
+	
+	
+	@Override public Devices devicesId()
+	{
+		Devices xml = XmlDevicesFactory.build();
+		for(Device d : restXml.deviceList().getDevice())
+		{
+			xml.getDevice().add(XmlDeviceFactory.id(d));
+		}
+		
+		return xml;
+	}
+	
+	@Override public Devices devicesDetail()
+	{
+		Devices xml = XmlDevicesFactory.build();
+		for(Device d : restXml.deviceList().getDevice())
+		{
+			xml.getDevice().add(XmlDeviceFactory.withChannels(d));
+		}
+		
+		return xml;
 	}
 }
