@@ -20,6 +20,18 @@
 		<maven>3.0</maven>
 	</prerequisites>
 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>net.sf.exlp</groupId>
+    			<artifactId>exlp-bom</artifactId>
+    			<version>0.1.18-SNAPSHOT</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	
 	<dependencies>		
 	
 		<dependency>
@@ -165,18 +177,6 @@
 		      </plugin>
 		</plugins>
 	</build>
-	
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>net.sf.exlp</groupId>
-    			<artifactId>exlp-bom</artifactId>
-    			<version>0.1.15-SNAPSHOT</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 
   	<repositories>
 		<repository>

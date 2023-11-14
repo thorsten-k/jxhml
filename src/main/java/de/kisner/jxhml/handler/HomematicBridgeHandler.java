@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import org.exlp.util.io.JsonUtil;
 import org.jeesl.model.json.io.ssi.core.JsonSsiCredential;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,7 +33,6 @@ import de.kisner.jxhml.model.json.rpc.response.JsonRpcStringResponse;
 import de.kisner.jxhml.model.json.rpc.response.JsonRpcSubsectionResponse;
 import de.kisner.jxhml.model.xml.api.Device;
 import de.kisner.jxhml.model.xml.jxhml.Devices;
-import net.sf.exlp.util.io.JsonUtil;
 
 public class HomematicBridgeHandler implements HomematicJavaBridge
 {
