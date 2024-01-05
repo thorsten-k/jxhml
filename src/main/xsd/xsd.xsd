@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://exlp.org"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+    jaxb:version="2.0">
+    
+    <xsd:import namespace="http://jxhml.kisner.de"		schemaLocation="jxhml/jxhml.xsd"/>
+    <xsd:import namespace="http://jxhml.kisner.de/api"	schemaLocation="jxhml/api.xsd"/>
+       
+</xsd:schema>

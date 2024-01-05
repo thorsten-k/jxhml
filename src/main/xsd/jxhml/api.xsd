@@ -1,36 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema
+<xsd:schema targetNamespace="http://jxhml.kisner.de/api" xmlns:api="http://jxhml.kisner.de/api"
     
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
-    xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" jaxb:extensionBindingPrefixes="xjc"
-    jaxb:version="2.0">
-    <xsd:annotation>
-        <xsd:appinfo>
-            <jaxb:globalBindings generateIsSetMethod="true">
-                <xjc:serializable uid="1"/>
-            </jaxb:globalBindings>
-        </xsd:appinfo>
-    </xsd:annotation>
+>
+   
     <xsd:element name="deviceList">
         <xsd:complexType>
             <xsd:sequence>
-					<xsd:element ref="device" maxOccurs="unbounded"/>
+					<xsd:element ref="api:device" maxOccurs="unbounded"/>
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
     <xsd:element name="state">
         <xsd:complexType>
             <xsd:sequence>
-					<xsd:element ref="device" maxOccurs="unbounded"/>
-					<xsd:element ref="datapoint" maxOccurs="unbounded"/>
+					<xsd:element ref="api:device" maxOccurs="unbounded"/>
+					<xsd:element ref="api:datapoint" maxOccurs="unbounded"/>
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
     <xsd:element name="device">
         <xsd:complexType>
             <xsd:sequence>
-            	<xsd:element ref="channel" maxOccurs="unbounded"/>
+            	<xsd:element ref="api:channel" maxOccurs="unbounded"/>
             </xsd:sequence>
             <xsd:attribute name="name" type="xsd:string"/>
 				<xsd:attribute name="address" type="xsd:string"/>
@@ -43,7 +35,7 @@
     <xsd:element name="channel">
         <xsd:complexType>
             <xsd:sequence>
-            	<xsd:element ref="datapoint" maxOccurs="unbounded"/>
+            	<xsd:element ref="api:datapoint" maxOccurs="unbounded"/>
             </xsd:sequence>
             <xsd:attribute name="ise_id" type="xsd:long"/>
             <xsd:attribute name="name" type="xsd:string"/>
@@ -67,7 +59,7 @@
     <xsd:element name="rssiList">
         <xsd:complexType>
             <xsd:sequence>
-            	<xsd:element ref="rssi" maxOccurs="unbounded"/>
+            	<xsd:element ref="api:rssi" maxOccurs="unbounded"/>
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>

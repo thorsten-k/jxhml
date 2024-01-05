@@ -16,8 +16,8 @@ public class XmlDataFactory
 {	
 	public static Data build(){return new Data();}
 	
-	public static Data build(Integer value, String type) {return build(value,type,null);}
-	public static Data build(Integer value, String type, Date record)
+	public static Data build(Double value, String type) {return build(value,type,null);}
+	public static Data build(Double value, String type, Date record)
 	{
 		Data xml = build();
 		xml.setValue(value);

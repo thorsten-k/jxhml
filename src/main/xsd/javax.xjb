@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jxb:bindings xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
+	version="2.1">
+
+	<jxb:globalBindings>
+		<jxb:serializable uid="1" />
+	</jxb:globalBindings>
+
+	<jxb:bindings schemaLocation="jxhml/api.xsd" node="/xsd:schema">
+        <jxb:schemaBindings>
+            <jxb:package name="de.kisner.jxhml.model.xml.api"/>
+        </jxb:schemaBindings>
+    </jxb:bindings>
+
+	<jxb:bindings schemaLocation="jxhml/jxhml.xsd" node="/xsd:schema">
+        <jxb:schemaBindings>
+            <jxb:package name="de.kisner.jxhml.model.xml.jxhml"/>
+        </jxb:schemaBindings>
+    </jxb:bindings>
+
+</jxb:bindings>
