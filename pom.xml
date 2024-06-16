@@ -13,7 +13,6 @@
 		<my.build.directory>target</my.build.directory>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    	<maven.ignore>file://${basedir}/src/main/resources/jbenkins/maven/ignore-versions.xml</maven.ignore>
 	</properties>
 
 	<prerequisites>
@@ -54,6 +53,13 @@
     		<artifactId>exlp-util</artifactId>
 		</dependency>
 		
+		<!-- Communication -->
+		<dependency>
+		  <groupId>org.eclipse.paho</groupId>
+		  <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+		  <version>1.2.0</version>
+		  <scope>provided</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-jaxrs</artifactId>
@@ -70,26 +76,17 @@
             	</exclusion>
 			</exclusions>
 		</dependency>
-		<dependency>
-		  <groupId>org.eclipse.paho</groupId>
-		  <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
-		  <version>1.2.0</version>
-		  <scope>provided</scope>
-		</dependency>
 		
 		<!-- JSON -->
    	   	<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.6.0</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 		   <groupId>com.fasterxml.jackson.datatype</groupId>
 		   <artifactId>jackson-datatype-jsr310</artifactId>
-		   <version>2.6.0</version>
 		   <scope>provided</scope>
-		   
 		</dependency>
 		
 		<!-- XML -->
@@ -101,11 +98,6 @@
 	
 		<!-- Logging -->
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<scope>provided</scope>
@@ -113,6 +105,11 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>

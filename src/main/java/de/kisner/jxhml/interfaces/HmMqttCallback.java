@@ -4,5 +4,6 @@ import org.eclipse.paho.client.mqttv3.MqttCallback;
 
 public interface HmMqttCallback extends MqttCallback
 {
-	public String getTopic();
+	public String getMqttTopic();
+	public String getDescription();
 }
