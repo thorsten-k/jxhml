@@ -14,20 +14,24 @@ import de.kisner.jxhml.model.xml.jxhml.Devices;
 @Path("/homematic")
 public interface HomematicWebRest extends HomematicWebRestInterface
 {
+	@POST @Path("/update/versions") @Consumes(MediaType.APPLICATION_JSON)
+	void updateVersions(JsonHmContainer rooms);
+
 	@POST @Path("/update/devices") @Consumes(MediaType.APPLICATION_JSON)
 	void updateDevices(JsonHmContainer devices);
-	
+
 	@POST @Path("/update/rooms") @Consumes(MediaType.APPLICATION_JSON)
 	void updateRooms(JsonHmContainer rooms);
-	
+
 	@POST @Path("/update/subsections") @Consumes(MediaType.APPLICATION_JSON)
 	void updateSubsections(JsonHmContainer subsections);
-	
-	
-	
+
+	@POST @Path("/update/points") @Consumes(MediaType.APPLICATION_JSON)
+	void updatePoints(JsonHmContainer points);
+
 	@POST @Path("/device/update/rssi") @Consumes(MediaType.APPLICATION_XML)
 	void updateRssi(Devices devices);
-	
+
 	@GET @Path("/device/update/{code}/{value}")
 	void update(@PathParam("code") String code, @PathParam("value") String value);
 

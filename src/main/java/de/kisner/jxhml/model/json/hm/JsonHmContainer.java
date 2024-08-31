@@ -22,6 +22,11 @@ public class JsonHmContainer implements Serializable
 	private List<JsonHmDevice> devices;
 	public List<JsonHmDevice> getDevices() {return devices;}
 	public void setDevices(List<JsonHmDevice> devices) {this.devices = devices;}
+	
+	@JsonProperty("points")
+	private List<JsonHmPoint> points;
+	public List<JsonHmPoint> getPoints() {return points;}
+	public void setPoints(List<JsonHmPoint> points) {this.points = points;}
 
 	@JsonProperty("rooms")
 	public List<JsonHmRoom> rooms;

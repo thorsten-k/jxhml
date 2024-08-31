@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import org.jeesl.model.json.system.status.JsonCategory;
 import org.jeesl.model.json.system.status.JsonMode;
+import org.jeesl.model.json.system.status.JsonType;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -44,5 +45,15 @@ public class JsonHmChannel implements Serializable
 	private JsonMode mode;
 	public JsonMode getMode() {return mode;}
 	public void setMode(JsonMode mode) {this.mode = mode;}
+	
+	@JsonProperty("type")
+	private JsonType type;
+	public JsonType getType() {return type;}
+	public void setType(JsonType type) {this.type = type;}
+
+	@JsonProperty("device")
+	private JsonHmDevice device;
+	public JsonHmDevice getDevice() {return device;}
+	public void setDevice(JsonHmDevice device) {this.device = device;}
 	
 }

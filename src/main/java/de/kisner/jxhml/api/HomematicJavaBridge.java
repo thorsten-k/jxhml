@@ -22,4 +22,5 @@ public interface HomematicJavaBridge
 	JsonHmContainer rooms();
 	JsonHmContainer subsections();
 	JsonHmContainer devices();
+	JsonHmContainer points();
 }

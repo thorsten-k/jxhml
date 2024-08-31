@@ -27,7 +27,10 @@ public interface HomematicCcuRest
 	JsonRpcStringResponse login(JsonRpcLoginRequest request);
 	
 	@POST @Path("/homematic.cgi") @Produces(MediaType.APPLICATION_JSON) @Consumes(MediaType.APPLICATION_JSON)
-	String test(JsonRpcRequest request);
+	String testRequest(JsonRpcRequest request);
+	
+	@POST @Path("/homematic.cgi") @Produces(MediaType.APPLICATION_JSON) @Consumes(MediaType.APPLICATION_JSON)
+	String testId(JsonRpcIdRequest request);
 	
 	
 	@POST @Path("/homematic.cgi") @Produces(MediaType.TEXT_PLAIN) @Consumes(MediaType.APPLICATION_JSON)
@@ -46,6 +49,9 @@ public interface HomematicCcuRest
 	JsonRpcInterfacesResponse interfaces(JsonRpcRequest request);
 	
 	@POST @Path("/homematic.cgi") @Produces(MediaType.APPLICATION_JSON) @Consumes(MediaType.APPLICATION_JSON)
+	JsonRpcArrayResponse regaDatapoints(JsonRpcRequest request);
+	
+	@POST @Path("/homematic.cgi") @Produces(MediaType.APPLICATION_JSON) @Consumes(MediaType.APPLICATION_JSON)
 	JsonRpcRssiResponse rssiInfo(JsonRpcInterfaceRequest request);
 	
 	
@@ -54,6 +60,8 @@ public interface HomematicCcuRest
 	
 	@POST @Path("/homematic.cgi") @Produces(MediaType.APPLICATION_JSON) @Consumes(MediaType.APPLICATION_JSON)
 	JsonRpcDeviceResponse device(JsonRpcIdRequest request);
+	
+	
 
 	@POST @Path("/homematic.cgi") @Produces(MediaType.APPLICATION_JSON) @Consumes(MediaType.APPLICATION_JSON)
 	JsonRpcRoomResponse rooms(JsonRpcRequest request);
@@ -61,7 +69,11 @@ public interface HomematicCcuRest
 	@POST @Path("/homematic.cgi") @Produces(MediaType.APPLICATION_JSON) @Consumes(MediaType.APPLICATION_JSON)
 	JsonRpcSubsectionResponse subsections(JsonRpcRequest request);
 	
+	
 	//Liefert wenig infos
 	@POST @Path("/homematic.cgi") @Produces(MediaType.APPLICATION_JSON) @Consumes(MediaType.APPLICATION_JSON)
 	String channelValue(JsonRpcIdRequest request);
+	
+	@POST @Path("/homematic.cgi") @Produces(MediaType.APPLICATION_JSON) @Consumes(MediaType.APPLICATION_JSON)
+	JsonRpcStringResponse channelType(JsonRpcIdRequest request);
 }
