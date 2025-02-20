@@ -52,13 +52,6 @@
     		<artifactId>exlp-util</artifactId>
 		</dependency>
 		
-		<!-- Communication -->
-		<dependency>
-		  <groupId>org.eclipse.paho</groupId>
-		  <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
-		  <scope>provided</scope>
-		</dependency>
-		
 		<!-- Jakarta EE -->
 		<dependency>
 			<groupId>jakarta.ws.rs</groupId>
@@ -85,6 +78,28 @@
 		   <artifactId>jackson-datatype-jsr310</artifactId>
 		   <version>2.18.2</version>
 		   <scope>provided</scope>
+		</dependency>
+		
+		<!-- Apache Commons -->
+		<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>2.18.0</version>
+		    <scope>provided</scope>
+		</dependency>
+		<dependency>
+		    <groupId>commons-codec</groupId>
+		    <artifactId>commons-codec</artifactId>
+		    <version>1.18.0</version>
+		    <scope>provided</scope>
+		</dependency>
+
+
+		<!-- Communication -->
+		<dependency>
+		  <groupId>org.eclipse.paho</groupId>
+		  <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+		  <scope>provided</scope>
 		</dependency>
 
 		<!-- Logging -->
