@@ -41,6 +41,11 @@ public class JsonHmDevice implements Serializable
 	public JsonRadio getRadio() {return radio;}
 	public void setRadio(JsonRadio radio) {this.radio = radio;}
 	
+	@JsonProperty("room")
+	private JsonHmRoom room;
+	public JsonHmRoom getRoom() {return room;}
+	public void setRoom(JsonHmRoom room) {this.room = room;}
+
 	@JsonProperty("channels")
 	private List<JsonHmChannel> channels;
 	public List<JsonHmChannel> getChannels() {return channels;}

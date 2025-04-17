@@ -10,6 +10,15 @@ public class JsonHmRoomFactory
 {
 	public static JsonHmRoom build() {return new JsonHmRoom();}
 	
+	public static JsonHmRoom build(String name)
+	{
+		JsonHmRoom json = JsonHmRoomFactory.build();
+		
+		json.setName(name);
+		
+		return json;
+	}
+	
 	public static JsonHmRoom build(JsonRpcRoom room)
 	{
 		JsonHmRoom json = build();
