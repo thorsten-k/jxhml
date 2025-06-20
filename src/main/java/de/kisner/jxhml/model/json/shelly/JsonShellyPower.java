@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonIgnoreProperties(ignoreUnknown=true)
 @JsonRootName(value="em")
-public class JsonShellyStatus implements Serializable
+public class JsonShellyPower implements Serializable
 {
 	public static final long serialVersionUID=1;
 
