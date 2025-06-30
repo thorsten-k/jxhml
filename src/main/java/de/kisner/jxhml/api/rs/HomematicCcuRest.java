@@ -59,9 +59,7 @@ public interface HomematicCcuRest
 	JsonRpcArrayResponse devices(JsonRpcRequest request);
 	
 	@POST @Path("/homematic.cgi") @Produces(MediaType.APPLICATION_JSON) @Consumes(MediaType.APPLICATION_JSON)
-	JsonRpcDeviceResponse device(JsonRpcIdRequest request);
-	
-	
+	JsonRpcDeviceResponse device(JsonRpcIdRequest request);	
 
 	@POST @Path("/homematic.cgi") @Produces(MediaType.APPLICATION_JSON) @Consumes(MediaType.APPLICATION_JSON)
 	JsonRpcRoomResponse rooms(JsonRpcRequest request);

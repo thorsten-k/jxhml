@@ -86,6 +86,8 @@ public class JsonRpcFactory
 	
 	public static JsonRpcRequest rooms(String session){return sessionRequest("Room.getAll", session);}
 	public static JsonRpcRequest subsections(String session){return sessionRequest("Subsection.getAll", session);}
+	public static JsonRpcRequest programs(String session){return sessionRequest("Program.listAll", session);}
+	
 	private static JsonRpcRequest sessionRequest(String command, String session)
 	{
 		JsonRpcRequest json = new JsonRpcRequest();
@@ -97,4 +99,28 @@ public class JsonRpcFactory
 		
 		return json;
 	}
+	
+
+//	object p;
+//	string pId;
+//	string pName;
+//	boolean pEnabled;
+//	integer pLast;
+//
+//	Write("{");
+//	foreach(pId, dom.GetObject(ID_PROGRAMS).EnumUsedIDs())
+//	{
+//		p = dom.GetObject(pId);
+//	  
+//	  pName = p.Name();
+//	  pLast = p.ProgramLastExecuteTimeSeconds();
+//	  pEnabled = p.Enabled();
+//
+//	  Write("[");
+//	!  Write(pId # " " # pEnabled # " " # pName # " " # pLast);
+//	  Write("id: " # pId);
+//	  Write("],");
+//	  
+//	}
+//	Write("}");
 }
