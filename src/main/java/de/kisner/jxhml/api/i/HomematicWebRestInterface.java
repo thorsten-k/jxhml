@@ -13,6 +13,7 @@ public interface HomematicWebRestInterface
 	void updateDevices(JsonHmContainer devices);
 	void updatePoints(JsonHmContainer points);
 	
+	void updateVars(JsonHmContainer vars);
 	void updateRssi(Devices devices);
 	void update(@PathParam("code") String code, @PathParam("value") String value);
 }

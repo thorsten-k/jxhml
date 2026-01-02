@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import de.kisner.jxhml.model.json.hm.JsonHmContainer;
 import de.kisner.jxhml.model.json.rpc.hm.JsonRpcRoom;
 import de.kisner.jxhml.model.json.rpc.hm.JsonRpcSubsection;
+import de.kisner.jxhml.model.json.rpc.hm.JsonRpcSystemVariable;
 import de.kisner.jxhml.model.json.rpc.response.JsonRpcRoomResponse;
 import de.kisner.jxhml.model.json.rpc.response.JsonRpcSubsectionResponse;
+import de.kisner.jxhml.model.json.rpc.response.JsonRpcSysVarResponse;
 
 public class JsonHmContainerFactory
 {
@@ -38,5 +40,17 @@ public class JsonHmContainerFactory
 		return json;
 	}
 	
+	public static JsonHmContainer build(JsonRpcSysVarResponse response)
+	{
+		JsonHmContainer json = build();
+		json.setVars(new ArrayList<>());
+		
+		for(JsonRpcSystemVariable rpc : response.getResult())
+		{
+			json.getVars().add(JsonHmVarFactory.build(rpc));
+		}
+		
+		return json;
+	}
 	
 }

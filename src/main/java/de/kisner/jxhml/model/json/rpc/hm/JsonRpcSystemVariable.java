@@ -53,6 +53,7 @@ public class JsonRpcSystemVariable implements Serializable
 	public Boolean getIsInternal() {return isInternal;}
 	public void setIsInternal(Boolean isInternal) {this.isInternal = isInternal;}
 	
+	
 	@JsonProperty("valueName0")
 	private String valueName0;
 	public String getValueName0() {return valueName0;}

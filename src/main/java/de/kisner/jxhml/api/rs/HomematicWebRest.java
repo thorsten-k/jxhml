@@ -35,4 +35,6 @@ public interface HomematicWebRest extends HomematicWebRestInterface
 	@GET @Path("/device/update/{code}/{value}")
 	void update(@PathParam("code") String code, @PathParam("value") String value);
 
+	@POST @Path("/update/vars") @Consumes(MediaType.APPLICATION_JSON)
+	void updateVars(JsonHmContainer vars);
 }

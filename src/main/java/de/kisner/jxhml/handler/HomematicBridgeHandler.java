@@ -192,11 +192,8 @@ public class HomematicBridgeHandler implements HomematicJavaBridge
 						
 						container.getPoints().add(json);
 					}
-					
-					
 				}
 			}
-			
 		}
 		
 		return container;

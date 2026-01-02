@@ -38,6 +38,9 @@ public class JsonHmContainer implements Serializable
 	public List<JsonHmSubsection> getSubsections() {return subsections;}
 	public void setSubsections(List<JsonHmSubsection> subsections) {this.subsections = subsections;}
 	
-	
+	@JsonProperty("vars")
+	public List<JsonHmVar> vars;
+	public List<JsonHmVar> getVars() {return vars;}
+	public void setVars(List<JsonHmVar> vars) {this.vars = vars;}
 	
 }
